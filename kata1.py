@@ -8,6 +8,7 @@ tableau_four=[]
 tableau_five=[]
 tableau_six=[]
 tableau_seven=[]
+burn_pile=[]
 
 class Card(object):
  def __init__(self,suit,rank,id):
@@ -25,19 +26,29 @@ class The_Deck(object):
   def shuffleDeck(self):
     for i in range(52):
       random_card_num = random.randint(0,len(self.list_of_cards)-1)
-      print random_card_num
-
-      card_to_be_inserted=self.list_of_cards.pop(random_card_num)
-      
+      card_to_be_inserted=self.list_of_cards.pop(random_card_num)    
       shuffledCards.append(card_to_be_inserted)
 
 
 
 class The_Game(object):
+  def __init__(self,deck):
+    self.deck=deck
+    self.deck.shuffleDeck()
 
 
   def deal_initial_tableaus(self):
-    tableau_one.insert(0,self.deal_single_card())
+    tableau_one.insert(0,self.deal_single_card().get_card_info())
+    tableau_two.insert(0,self.deal_single_card())
+    tableau_three.insert(0,self.deal_single_card())
+    tableau_four.insert(0,self.deal_single_card())
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+    print tableau_seven.pop(0)
+
+    
+
     tableau_two.insert(0,self.deal_single_card())
     tableau_three.insert(0,self.deal_single_card())
     tableau_four.insert(0,self.deal_single_card())
@@ -45,13 +56,6 @@ class The_Game(object):
     tableau_six.insert(0,self.deal_single_card())
     tableau_seven.insert(0,self.deal_single_card())
 
-    tableau_two.insert(0,self.deal_single_card())
-    tableau_three.insert(0,self.deal_single_card())
-    tableau_four.insert(0,self.deal_single_card())
-    tableau_five.insert(0,self.deal_single_card())
-    tableau_six.insert(0,self.deal_single_card())
-    tableau_seven.insert(0,self.deal_single_card())
-
     tableau_three.insert(0,self.deal_single_card())
     tableau_four.insert(0,self.deal_single_card())
     tableau_five.insert(0,self.deal_single_card())
@@ -71,18 +75,20 @@ class The_Game(object):
     tableau_seven.insert(0,self.deal_single_card())
 
     tableau_seven.insert(0,self.deal_single_card())
+
+    for i in range(len(tableau_seven)):
+      print "here"
+      test_card=tableau_seven.pop(0)
+      print test_card
+      #test_card.get_card_info()
 
 
 #should deal a single card from the "end" of the shuffled deck
   def deal_single_card(self):
-    shuffledCards.pop()
+    shuffledCards.pop(0)
 
 
-#need a method to shuffle the deck into a list or array or something like that
-#need a data type to hold the deck
-#need data types to hold the 7 tableu piles
-#need data types to hold the played cards
-#need data types to hold the discard pile
+
 
 
 def main():
@@ -166,12 +172,9 @@ def main():
      queen_of_clubs,queen_of_hearts,queen_of_spades,queen_of_diamonds,
      king_of_clubs,king_of_hearts,king_of_diamonds,king_of_spades])
 
-  game=The_Game()
+  game=The_Game(theDeckInitial)
   game.deal_initial_tableaus()
-
-
-
-
+  
 
 
 if __name__ == "__main__":
