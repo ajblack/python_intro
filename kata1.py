@@ -19,6 +19,15 @@ class Card(object):
  def get_card_info(self):
   if self.rank > 1 and self.rank < 11:
     print "this card is the ",self.rank, "of ",self.suit
+  elif self.rank == 1:
+    print "this card is the ace of ",self.suit
+  elif self.rank == 11:
+    print "this card is the jack of ", self.suit
+  elif self.rank == 12:
+    print "this card is the queen of ", self.suit
+  else:
+    print "this card is the king of ",self.suit
+
  
 class The_Deck(object):
   def __init__(self,list_of_cards):
@@ -38,14 +47,13 @@ class The_Game(object):
 
 
   def deal_initial_tableaus(self):
-    tableau_one.insert(0,self.deal_single_card().get_card_info())
+    tableau_one.insert(0,self.deal_single_card())
     tableau_two.insert(0,self.deal_single_card())
     tableau_three.insert(0,self.deal_single_card())
     tableau_four.insert(0,self.deal_single_card())
     tableau_five.insert(0,self.deal_single_card())
     tableau_six.insert(0,self.deal_single_card())
     tableau_seven.insert(0,self.deal_single_card())
-    print tableau_seven.pop(0)
 
     
 
@@ -76,16 +84,12 @@ class The_Game(object):
 
     tableau_seven.insert(0,self.deal_single_card())
 
-    for i in range(len(tableau_seven)):
-      print "here"
-      test_card=tableau_seven.pop(0)
-      print test_card
-      #test_card.get_card_info()
+      
 
 
 #should deal a single card from the "end" of the shuffled deck
   def deal_single_card(self):
-    shuffledCards.pop(0)
+    return shuffledCards.pop(0)
 
 
 
