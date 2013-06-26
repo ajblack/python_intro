@@ -18,15 +18,16 @@ class Card(object):
 
  def get_card_info(self):
   if self.rank > 1 and self.rank < 11:
-    print "this card is the ",self.rank, "of ",self.suit
+    print self.rank, "of ",self.suit
   elif self.rank == 1:
-    print "this card is the ace of ",self.suit
+    print "ace of ",self.suit
   elif self.rank == 11:
-    print "this card is the jack of ", self.suit
+    print "jack of ", self.suit
   elif self.rank == 12:
-    print "this card is the queen of ", self.suit
-  else:
-    print "this card is the king of ",self.suit
+    print "queen of ", self.suit
+  elif self.rank == 13:
+    print "king of ",self.suit
+
 
  
 class The_Deck(object):
@@ -45,6 +46,49 @@ class The_Game(object):
     self.deck=deck
     self.deck.shuffleDeck()
 
+  def recite_game_status(self):
+    print "here is the status of your game..."
+    first_c=tableau_one.pop(0)
+    print "your first tableau has ", len(tableau_one), " cards in it and there is a ",
+    first_c.get_card_info(), 
+    print"on top"
+    tableau_one.insert(0,first_c)
+
+    second_c=tableau_two.pop(0)
+    print "your second tableau has ", len(tableau_two), " cards in it and there is a ",
+    second_c.get_card_info(), 
+    print"on top"
+    tableau_two.insert(0,second_c)
+
+    third_c=tableau_three.pop(0)
+    print "your third tableau has ", len(tableau_three), " cards in it and there is a ",
+    third_c.get_card_info(), 
+    print"on top"
+    tableau_one.insert(0,first_c)
+
+    fourth_c=tableau_four.pop(0)
+    print "your fourth tableau has ", len(tableau_four), " cards in it and there is a ",
+    fourth_c.get_card_info(), 
+    print"on top"
+    tableau_four.insert(0,fourth_c)
+
+    fifth_c=tableau_five.pop(0)
+    print "your fifth tableau has ", len(tableau_five), " cards in it and there is a ",
+    fifth_c.get_card_info(), 
+    print "on top"
+    tableau_one.insert(0,fifth_c)
+
+    sixth_c=tableau_six.pop(0)
+    print "you sixth tableau has ", len(tableau_six), " cards in it and there is a ",
+    sixth_c.get_card_info(), 
+    print "on top"
+    tableau_one.insert(0,sixth_c)
+
+    seventh_c=tableau_seven.pop(0)
+    print "you seventh tableau has ", len(tableau_seven), " cards in it and there is a ",
+    seventh_c.get_card_info(), 
+    print" on top"
+    tableau_seven.insert(0,seventh_c)
 
   def deal_initial_tableaus(self):
     tableau_one.insert(0,self.deal_single_card())
@@ -84,16 +128,10 @@ class The_Game(object):
 
     tableau_seven.insert(0,self.deal_single_card())
 
-      
-
-
+    
 #should deal a single card from the "end" of the shuffled deck
   def deal_single_card(self):
     return shuffledCards.pop(0)
-
-
-
-
 
 def main():
 
@@ -178,6 +216,7 @@ def main():
 
   game=The_Game(theDeckInitial)
   game.deal_initial_tableaus()
+  game.recite_game_status()
   
 
 
