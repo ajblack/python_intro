@@ -1,5 +1,13 @@
 import random
 shuffledCards=[]
+tableau_one=[]
+tableau_two=[]
+tableau_two=[]
+tableau_three=[]
+tableau_four=[]
+tableau_five=[]
+tableau_six=[]
+tableau_seven=[]
 
 class Card(object):
  def __init__(self,suit,rank,id):
@@ -7,11 +15,15 @@ class Card(object):
   self.rank=rank
   self.id=id
 
+ def get_card_info(self):
+  if self.rank > 1 and self.rank < 11:
+    print "this card is the ",self.rank, "of ",self.suit
+ 
 class The_Deck(object):
   def __init__(self,list_of_cards):
     self.list_of_cards=list_of_cards
   def shuffleDeck(self):
-    for card in self.list_of_cards:
+    for i in range(52):
       random_card_num = random.randint(0,len(self.list_of_cards)-1)
       print random_card_num
 
@@ -21,6 +33,49 @@ class The_Deck(object):
 
 
 
+class The_Game(object):
+
+
+  def deal_initial_tableaus(self):
+    tableau_one.insert(0,self.deal_single_card())
+    tableau_two.insert(0,self.deal_single_card())
+    tableau_three.insert(0,self.deal_single_card())
+    tableau_four.insert(0,self.deal_single_card())
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_two.insert(0,self.deal_single_card())
+    tableau_three.insert(0,self.deal_single_card())
+    tableau_four.insert(0,self.deal_single_card())
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_three.insert(0,self.deal_single_card())
+    tableau_four.insert(0,self.deal_single_card())
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_four.insert(0,self.deal_single_card())
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_five.insert(0,self.deal_single_card())
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_six.insert(0,self.deal_single_card())
+    tableau_seven.insert(0,self.deal_single_card())
+
+    tableau_seven.insert(0,self.deal_single_card())
+
+
+#should deal a single card from the "end" of the shuffled deck
+  def deal_single_card(self):
+    shuffledCards.pop()
 
 
 #need a method to shuffle the deck into a list or array or something like that
@@ -31,6 +86,7 @@ class The_Deck(object):
 
 
 def main():
+
   ace_of_spades=Card("Spades",1,1)
   ace_of_diamonds=Card("Diamonds",1,2)
   ace_of_hearts=Card("Hearts",1,3)
@@ -110,15 +166,8 @@ def main():
      queen_of_clubs,queen_of_hearts,queen_of_spades,queen_of_diamonds,
      king_of_clubs,king_of_hearts,king_of_diamonds,king_of_spades])
 
-
-  for card in theDeckInitial.list_of_cards:
-    print "current suit :", card.suit, card.id
-
-  print "now to test the shuffling"
-  theDeckInitial.shuffleDeck()
-
-  for card in shuffledCards:
-    print "current suit :", card.suit, card.id
+  game=The_Game()
+  game.deal_initial_tableaus()
 
 
 
