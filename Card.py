@@ -1,4 +1,7 @@
 import random
+from Game import The_Game
+from Tableau import Tableau
+from Deck import The_Deck
 
 class Card(object):
  def __init__(self,suit,rank,id):
@@ -17,3 +20,5 @@ class Card(object):
     print "queen of ", self.suit
   elif self.rank == 13:
     print "king of ",self.suit
+
+
