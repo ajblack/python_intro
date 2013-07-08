@@ -1,7 +1,3 @@
-import random
-from Game import The_Game
-from Card import Card
-from Tableau import Tableau
 
 
 class Deck(object):
@@ -9,6 +5,6 @@ class Deck(object):
     self.list_of_cards=list_of_cards
  
   def get_cards(self):
-  	return self.list_of_cards
+    return self.list_of_cards
 
    
