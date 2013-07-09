@@ -2,13 +2,6 @@ from Card import Card
 from Deck import Deck
 from Game import Game
 
-
-
-
-
-burn_pile = []
-
-
 def main():
     ace_of_spades = Card('Spades', 1, 1)
     ace_of_diamonds = Card("Diamonds", 1, 2)
@@ -93,6 +86,11 @@ def main():
     game.shuffle_deck(theDeckInitial.get_cards())
     game.deal_initial_tableaus()
     game.recite_game_status()
+    while(game.is_complete == False):
+        game.make_move()
+        game.recite_game_status()
+
+
 
 
 if __name__ == "__main__":
