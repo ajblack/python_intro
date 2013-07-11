@@ -26,11 +26,11 @@ class Tableau(object):
     def insert(self,the_space,the_card):
         self.tableau_stack.insert(the_space,the_card)
 
+    def show_face_up_cards(self):
+        for card in self.tableau_stack:
+            if card.is_face_up:
+                card.get_card_info()
 
-
-
-
-
-
+    def available_moves(self):
 
 

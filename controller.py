@@ -86,8 +86,9 @@ def main():
     game.shuffle_deck(theDeckInitial.get_cards())
     game.deal_initial_tableaus()
     game.recite_game_status()
-    while(game.is_complete == False):
+    while(game.check_if_game_complete() == False):
         game.make_move()
+
         game.recite_game_status()
 
 

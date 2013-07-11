@@ -18,3 +18,8 @@ class Card(object):
             print "king of ", self.suit
 
 
+    def is_face_up(self):
+        if self.face_up:
+            return True
+        else:
+            return False
